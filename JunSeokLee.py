@@ -17,7 +17,7 @@ WHITE_POS = 4
 BASE = 40
 LEN = 80
 
-BLK_SCR_BASE_X = 760
+BLK_SCR_BASE_X = 825
 BLK_SCR_BASE_Y = 220
 WHT_SCR_BASE_X = 1080
 WHT_SCR_BASE_Y = 220
@@ -380,10 +380,10 @@ def show_score():
 
     black_score, white_score = score_check()
 
-    for idx, num in enumerate(str(black_score)[::1]):
+    for idx, num in enumerate(str(black_score)[::-1]):
         file_name = 'Images/L' + num + '.png'
         number = Object(file_name)
-        number.locate(game_scene, BLK_SCR_BASE_X + idx * SCR_LEN, BLK_SCR_BASE_Y)
+        number.locate(game_scene, BLK_SCR_BASE_X - idx * SCR_LEN, BLK_SCR_BASE_Y)
         number.show()
         black_score_img.append(number)
 
